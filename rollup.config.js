@@ -1,10 +1,10 @@
 import path from 'path'
-import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 import babel from 'rollup-plugin-babel'
 
 export default {
+  external: ['prismic-dom', 'prismic-javascript'],
   input: 'src/index.js',
   output: [
     {
@@ -22,9 +22,6 @@ export default {
     }
   ],
   plugins: [
-    nodeResolve({
-      browser: true
-    }),
     commonjs(),
     vue(),
     babel({
